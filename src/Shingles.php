@@ -40,9 +40,10 @@ abstract class Shingles
      */
     abstract public function makeHash($shingle);
 
-    public function compare()
+    public function compare($content1, $content2)
     {
-
+        $shingles1 = $this->splitShingles($this->canonize($content1));
+        $shingles2 = $this->splitShingles($this->canonize($content2));
     }
 
     /**
