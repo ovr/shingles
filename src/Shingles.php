@@ -7,6 +7,8 @@ namespace Shingles;
 
 abstract class Shingles
 {
+    protected $stopSymbols = [];
+
     protected $shinglesCount;
 
     public function __construct($shinglesCount = 3)
@@ -33,5 +35,21 @@ abstract class Shingles
     public function compare()
     {
 
+    }
+
+    /**
+     * @return array
+     */
+    public function getStopSymbols()
+    {
+        return $this->stopSymbols;
+    }
+
+    /**
+     * @param array $stopSymbols
+     */
+    public function setStopSymbols(array $stopSymbols)
+    {
+        $this->stopSymbols = $stopSymbols;
     }
 }
