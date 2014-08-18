@@ -50,7 +50,12 @@ abstract class Shingles
     {
         $shingles = array();
 
-        for ($i = 0; $i < $this->shinglesCount; $i++) {
+        $countWords = count($words);
+
+        /**
+         * Вычитаю кол-во слов так как я их итак собираю перед хешом
+         */
+        for ($i = 0; $i <  $countWords-$this->shinglesCount; $i++) {
             $shingles[] = $this->makeHash(implode(' ', array_slice($words, $i, $this->shinglesCount)));
         }
 
