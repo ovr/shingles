@@ -43,15 +43,15 @@ abstract class Shingles
     }
 
     /**
-     * @param array $content
+     * @param array $words
      * @return array
      */
-    public function splitShingles(array $content)
+    public function splitShingles(array $words)
     {
         $shingles = array();
 
         for ($i = 0; $i < $this->shinglesCount; $i++) {
-            $shingles[] = $this->makeHash($content[$i]);
+            $shingles[] = $this->makeHash(implode(' ', array_slice($words, $i, $this->shinglesCount)));
         }
 
         return $shingles;
