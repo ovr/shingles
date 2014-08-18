@@ -16,9 +16,17 @@ abstract class Shingles
         $this->shinglesCount = $shinglesCount;
     }
 
-    public function canonize()
+    /**
+     * @param $content
+     * @return array
+     */
+    public function canonize($content)
     {
+        $text = str_replace($this->stopSymbols, '', $content);
 
+        $text = strtolower($text);
+
+        return explode(' ', $text);
     }
 
     public function splitShingles()
