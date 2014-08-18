@@ -26,12 +26,22 @@ abstract class Shingles
 
         $text = strtolower($text);
 
-        return explode(' ', $text);
+        return explode(' ', $content);
     }
 
-    public function splitShingles()
+    /**
+     * @param array $content
+     * @return array
+     */
+    public function splitShingles(array $content)
     {
+        $shingles = array();
 
+        for ($i = 0; $i < $this->shinglesCount; $i++) {
+            $shingle[] = $this->makeHash($content[$i]);
+        }
+
+        return $shingles;
     }
 
     /**
