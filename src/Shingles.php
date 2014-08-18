@@ -13,6 +13,10 @@ abstract class Shingles
 
     public function __construct($shinglesCount = 3)
     {
+        if (!is_int($shinglesCount)) {
+            throw new \InvalidArgumentException('$shinglesCount must be int type');
+        }
+
         $this->shinglesCount = $shinglesCount;
     }
 
