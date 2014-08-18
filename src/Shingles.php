@@ -3,11 +3,15 @@
  * @author Patsura Dmitry @ovr <talk@dmtry.me>
  */
 
+namespace Shingles;
+
 abstract class Shingles
 {
-    public function __construct()
-    {
+    protected $shinglesCount;
 
+    public function __construct($shinglesCount = 3)
+    {
+        $this->shinglesCount = $shinglesCount;
     }
 
     public function canonize()
@@ -28,6 +32,6 @@ abstract class Shingles
 
     public function compare()
     {
-        
+
     }
 }
