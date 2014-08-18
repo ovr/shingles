@@ -7,10 +7,19 @@ namespace Shingles;
 
 abstract class Shingles
 {
+    /**
+     * @var array
+     */
     protected $stopSymbols = [];
 
+    /**
+     * @var integer
+     */
     protected $shinglesCount;
 
+    /**
+     * @param int $shinglesCount
+     */
     public function __construct($shinglesCount = 3)
     {
         if (!is_int($shinglesCount)) {
@@ -54,6 +63,11 @@ abstract class Shingles
      */
     abstract public function makeHash($shingle);
 
+    /**
+     * @param $content1
+     * @param $content2
+     * @return float
+     */
     public function compare($content1, $content2)
     {
         $shingle1 = $this->splitShingles($this->canonize($content1));
