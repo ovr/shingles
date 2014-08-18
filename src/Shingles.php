@@ -38,7 +38,7 @@ abstract class Shingles
         $shingles = array();
 
         for ($i = 0; $i < $this->shinglesCount; $i++) {
-            $shingle[] = $this->makeHash($content[$i]);
+            $shingles[] = $this->makeHash($content[$i]);
         }
 
         return $shingles;
@@ -52,8 +52,13 @@ abstract class Shingles
 
     public function compare($content1, $content2)
     {
-        $shingles1 = $this->splitShingles($this->canonize($content1));
-        $shingles2 = $this->splitShingles($this->canonize($content2));
+        $shingle1 = $this->splitShingles($this->canonize($content1));
+        $shingle2 = $this->splitShingles($this->canonize($content2));
+
+        $diff = array_diff($shingle1, $shingle2);
+        $count_shingle = count($shingle1);
+
+        return ($count_shingle-count($diff))/$count_shingle*100;
     }
 
     /**
