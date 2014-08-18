@@ -48,7 +48,7 @@ abstract class Shingles
     /**
      * @param array $stopSymbols
      */
-    public function setStopSymbols(array $stopSymbols)
+    public function addStopSymbols(array $stopSymbols)
     {
         $this->stopSymbols = $stopSymbols;
     }
